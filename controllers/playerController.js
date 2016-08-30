@@ -6,7 +6,12 @@ var playersController = {
     PlayerModel.find({}, function(err,docs){
       res.json(docs)
     })
-  }
+  },
+show: function(req,res){
+  PlayerModel.findById({_id: req.params.id}, function(err,doc){
+    res.json(doc)
+  })
+}
 }
 
 module.exports = playersController
