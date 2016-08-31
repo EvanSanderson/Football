@@ -29,7 +29,6 @@ app.use("/assets", express.static("public"));
 
 
 var playersController = require("./controllers/playerController.js");
-var teamController = require("./controllers/teamController.js");
 
 app.get("/", function(req,res){
   res.render("app-welcome")
@@ -41,7 +40,7 @@ app.post("/players", playersController.create)
 app.get("/players/:id", playersController.show)
 app.put("/players/:id", playersController.update)
 app.delete("/players/:id", playersController.delete)
-app.get("/teams", teamController.index);
+
 
 app.listen("4000", function(){
   console.log("HELLOOOO")
