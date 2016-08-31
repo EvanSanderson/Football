@@ -6,10 +6,11 @@
     .controller("PlayerIndexController", [
       "PlayerFactory",
       "$state",
+      "$window",
       PlayerIndexControllerFunction
     ])
 
-    function PlayerIndexControllerFunction(PlayerFactory, $state){
+    function PlayerIndexControllerFunction(PlayerFactory, $state, $window){
       var vm = this;
       vm.players = PlayerFactory.query()
       console.log(vm.players)
@@ -20,8 +21,10 @@
         console.log("working")
         vm.player.$save().then(function(res){
           console.log(res)
-          $state.go("playerIndex");
+          $window.location("playerIndex");
         })
       }
+
+  
     }
 })();

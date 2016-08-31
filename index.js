@@ -36,6 +36,7 @@ app.get("/", function(req,res){
 });
 
 app.get("/players", playersController.index)
+
 app.post("/players", playersController.create)
 app.get("/players/:id", playersController.show)
 app.put("/players/:id", playersController.update)

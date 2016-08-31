@@ -29,8 +29,15 @@
       console.log(vm.player._id)
       vm.player.$delete({id: vm.player._id}).then(function(){
         console.log("ITS WORKING")
-        $state.go('playerIndex', {reload:true});
+        $state.transition('playerIndex', {reload:true});
       })
+    }
+
+    vm.addTeam = function(){
+      console.log("working")
+      vm.player.team.push({name: vm.team.name})
+      vm.player.$update({id: vm.player._id})
+      // vm.player.team.push(vm.)
     }
 }
 
