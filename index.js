@@ -1,7 +1,12 @@
 var mongoose = require("mongoose");
 var express = require("express");
 var hbs = require("express-handlebars");
-var conn = mongoose.connect("mongodb://localhost/football");
+
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URI);
+}else{
+  mongoose.connect("mongodb://localhost/football");
+}
 var parser = require("body-parser");
 var methodOverride = require('method-override');
 
