@@ -1,6 +1,10 @@
 var mongoose = require("mongoose")
 
-var conn = mongoose.connect("mongodb://localhost/football")
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URI);
+}else{
+  mongoose.connect("mongodb://localhost/whenpresident");
+}
 
 var PlayerModel = require("../models/player")
 var TeamModel = require("../models/team")

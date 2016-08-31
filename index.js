@@ -15,7 +15,7 @@ app.use(methodOverride('_method'))
 
 
 
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs")
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -42,6 +42,6 @@ app.put("/players/:id", playersController.update)
 app.delete("/players/:id", playersController.delete)
 
 
-app.listen("4000", function(){
-  console.log("HELLOOOO")
-})
+app.listen(app.get("port"), function(){
+  console.log("It's aliiive!");
+});
