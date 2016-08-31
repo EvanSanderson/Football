@@ -3,7 +3,7 @@ var express = require("express");
 var hbs = require("express-handlebars");
 var conn = mongoose.connect("mongodb://localhost/football");
 var parser = require("body-parser");
-
+var methodOverride = require('method-override');
 
 var app = express();
 
@@ -11,6 +11,7 @@ var app = express();
 var cors = require('cors')
 
 app.use(cors());
+app.use(methodOverride('_method'))
 
 
 
@@ -35,6 +36,7 @@ app.get("/", function(req,res){
 });
 
 app.get("/players", playersController.index)
+app.post("/players", playersController.create)
 app.get("/players/:id", playersController.show)
 app.get("/teams", teamController.index);
 

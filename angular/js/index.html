@@ -5,3 +5,9 @@
       <p> {{team.name}} </p>
     </div>
 </div>
+
+<form>
+  <input placeholder="Name" data-ng-model="PlayerIndexViewModel.player.name">
+  <input placeholder="Team Name" data-ng-model="PlayerIndexViewModel.player.team[0].name">
+  <button type="button" data-ng-click="PlayerIndexViewModel.create()">Create</button>
+</form>
