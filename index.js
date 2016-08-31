@@ -10,7 +10,6 @@ var app = express();
 
 var cors = require('cors')
 
-app.use(cors());
 app.use(methodOverride('_method'))
 
 
@@ -23,6 +22,7 @@ app.engine(".hbs", hbs({
   layoutsDir:     "views/",
   defaultLayout:  "layout-main"
 }));
+app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 app.use("/assets", express.static("public"));
