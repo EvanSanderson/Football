@@ -3,9 +3,8 @@ var mongoose = require("mongoose")
 if(process.env.NODE_ENV == "production"){
   mongoose.connect(process.env.MONGOLAB_URI);
 }else{
-  mongoose.connect("mongodb://localhost/whenpresident");
+  mongoose.connect("mongodb://localhost/football");
 }
-
 var PlayerModel = require("../models/player")
 var TeamModel = require("../models/team")
 
