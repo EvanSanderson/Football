@@ -22,6 +22,22 @@ create: function(req,res){
       console.log(player)
     }
   })
+},
+update: function(req,res){
+  console.log(req.body);
+  console.log(req.body.player);
+  console.log("update gettin hit")
+  PlayerModel.findOneAndUpdate({_id: req.body._id}, req.body, {new:true}).then(function(player){
+    console.log(player)
+    res.json(player)
+  })
+},
+delete: function(req,res){
+  console.log("delete gettin hit")
+  console.log(req.params.id)
+  PlayerModel.findOneAndRemove({_id: req.params.id}).then(function(res){
+      console.log(res)
+  })
 }
 }
 
